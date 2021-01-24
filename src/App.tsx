@@ -21,8 +21,10 @@ import PageWrapper from "./PageWrapper";
 import Landing from "./pages/Landing";
 import Contact from "./pages/Contact";
 
-// TODO: Host the project on netlify
 // TODO: Implement Chat room invite
+// TODO: Implement Form behavior
+// TODO: Implement state management
+// TODO: Replace navbar
 // TODO: Build component stories
 // TODO: Write component tests
 
@@ -42,7 +44,7 @@ function App() {
         </AppWrapper>
       )) || (
         <PageWrapper setPage={setPage}>
-          {page === "landing" && <Landing />}
+          {page === "landing" && <Landing setPage={setPage} />}
 
           {page === "contact" && <Contact />}
         </PageWrapper>

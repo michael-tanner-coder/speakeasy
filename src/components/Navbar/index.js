@@ -26,7 +26,10 @@ const Navbar = ({ setPage }) => {
             Contact
           </a>
         </nav>
-        <div className="w-nav-button">
+        <div
+          className="w-nav-button"
+          onClick={() => console.log("Menu opened")}
+        >
           <div className="w-icon-nav-menu"></div>
         </div>
       </div>

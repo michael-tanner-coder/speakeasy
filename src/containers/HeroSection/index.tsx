@@ -109,8 +109,10 @@ const Col = styled.div`
 `;
 
 const Logo = styled.img``;
-
-const HeroSectionComponent = () => {
+interface HeroProps {
+  setPage: React.Dispatch<React.SetStateAction<string>>;
+}
+const HeroSectionArea: React.FC<HeroProps> = ({ setPage }) => {
   return (
     <SectionWrapper className="hero">
       <Phone
@@ -141,7 +143,12 @@ const HeroSectionComponent = () => {
           <Tagline className="paragraph">
             The chat app for maximum clarity
           </Tagline>
-          <HeroButton shade="light" href="#" className="button w-button">
+          <HeroButton
+            shade="light"
+            href="#"
+            className="button w-button"
+            onClick={() => setPage("app")}
+          >
             Join the Beta!
           </HeroButton>
         </Col>
@@ -149,10 +156,6 @@ const HeroSectionComponent = () => {
       </Columns>
     </SectionWrapper>
   );
-};
-
-const HeroSectionArea = () => {
-  return <HeroSectionComponent></HeroSectionComponent>;
 };
 
 export default HeroSectionArea;
