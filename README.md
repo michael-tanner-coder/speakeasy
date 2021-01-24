@@ -1,7 +1,5 @@
-# React Firebase Super Chat
+# speakEasy - a chat app for maximum clarity
 
-A simple fullstack chat demo with React and Firebase. 
+This is a simple chat app undergoing beta testing. 
 
-Watch on full [React Firebase Chat Tutorial](https://youtu.be/zQyrwxMPm88) on YouTube. 
-
-[Live demo](https://fireship-demos.web.app/)
+The app's purpose is to allow for users to convey their exact tone in a text message by selecting simple, unambiguous tone indicators.
