@@ -3,7 +3,7 @@ import React from "react";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import "./pagestyles.css";
+// import "./pagestyles.css";
 
 const PageStyles = styled.div`
   margin: 0 auto;
