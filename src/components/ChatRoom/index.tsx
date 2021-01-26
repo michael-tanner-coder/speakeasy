@@ -20,7 +20,7 @@ import User from "../../models/User";
 
 // Styles + Icons
 import styled from "styled-components";
-import ToneIcon from "../../images/ToneIcon.svg";
+import ToneIcon from "../../images/ToneButton.svg";
 import SendIcon from "../../images/SendIcon.svg";
 
 // Styled components
@@ -96,7 +96,14 @@ const ToneButton = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-
+  position: relative;
+  &:after {
+    position: absolute;
+    content: "[tone]";
+    color: white;
+    font-size: 14px;
+    top: 40px;
+  }
   &:hover {
     max-width: 60px;
     max-height: 60px;
@@ -104,6 +111,17 @@ const ToneButton = styled.div`
 
   &:active {
     background: white;
+  }
+
+  &:hover,
+  &:active {
+    &:after {
+      position: absolute;
+      content: "";
+      color: white;
+      font-size: 14px;
+      top: 40px;
+    }
   }
 `;
 
@@ -222,6 +240,7 @@ const ChatRoom = () => {
         <SendButton type="submit" disabled={!formValue}>
           <img src={SendIcon} alt="" />
         </SendButton>
+
         <ToneButton
           className="alerter-item"
           onClick={() => {
