@@ -33,7 +33,7 @@ const Tagline = styled.p`
   }
 
   @media (max-width: 479px) {
-    font-size: 18px;
+    font-size: 16px;
   }
 `;
 
@@ -61,6 +61,10 @@ const Logo = styled.img`
   width: 100%;
   height: auto;
   max-width: 515px;
+
+  @media (max-width: 550px) {
+    max-width: 250px;
+  }
 `;
 
 const HeroItems = styled.div`

@@ -9,7 +9,7 @@ const PageStyles = styled.div`
   margin: 0 auto;
   background: ${({ theme }) => theme.color.background};
   color: ${({ theme }) => theme.color.white};
-
+  overflow-x: hidden;
   body {
     background-color: ${({ theme }) => theme.color.background};
   }
