@@ -1,10 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import MenuIcon from "../../images/MenuIcon.svg";
 
 const NavWrapper = styled.nav`
   background-color: ${({ theme }) => theme.color.primary.light};
   overflow: hidden;
   padding: 1em;
+  position: fixed;
+  width: 100%;
+  top: 0;
 
   a {
     color: #fff;
@@ -78,69 +82,42 @@ const NavbarComponent = ({ setPage }) => {
     }
   };
 
+  const menuItems = [
+    { name: "Home", page: "landing" },
+    { name: "App", page: "app" },
+    { name: "Contact", page: "contact" },
+  ];
+
   return (
     <NavWrapper>
       <div className="navWide">
         <div className="wideDiv">
-          <a href="#" onClick={() => setPage("landing")}>
-            Home
-          </a>
-          <a href="#" onClick={() => setPage("app")}>
-            App
-          </a>
-          <a href="#" onClick={() => setPage("contact")}>
-            Contact
-          </a>
+          {menuItems.map((item) => {
+            return (
+              <a href="#" onClick={() => setPage(item.page)}>
+                {item.name}
+              </a>
+            );
+          })}
         </div>
       </div>
       <div className="navNarrow">
-        <i className="fa fa-bars fa-2x" onClick={() => burgerToggle()}></i>
+        <img
+          src={MenuIcon}
+          className="fa fa-bars fa-2x"
+          onClick={() => burgerToggle()}
+        />
         <div className="narrowLinks">
-          <a href="#" onClick={() => burgerToggle()}>
-            Link 1
-          </a>
-          <a href="#" onClick={() => burgerToggle()}>
-            Link 2
-          </a>
-          <a href="#" onClick={() => burgerToggle()}>
-            Link 3
-          </a>
+          {menuItems.map((item) => {
+            return (
+              <a href="#" onClick={() => setPage(item.page)}>
+                {item.name}
+              </a>
+            );
+          })}
         </div>
       </div>
     </NavWrapper>
-
-    // <div
-    //   data-collapse="medium"
-    //   data-animation="default"
-    //   data-duration="400"
-    //   role="banner"
-    //   className="navbar w-nav"
-    // >
-    //   <div className="container w-container">
-    //     <nav role="navigation" className="nav-menu w-nav-menu">
-    //       <a
-    //         href="#"
-    //         className="nav-link w-nav-link"
-    //         onClick={() => setPage("app")}
-    //       >
-    //         App
-    //       </a>
-    //       <a
-    //         href="#"
-    //         className="nav-link w-nav-link"
-    //         onClick={() => setPage("contact")}
-    //       >
-    //         Contact
-    //       </a>
-    //     </nav>
-    //     <div
-    //       className="w-nav-button"
-    //       onClick={() => console.log("Menu opened")}
-    //     >
-    //       <div className="w-icon-nav-menu"></div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 
