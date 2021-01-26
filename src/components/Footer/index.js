@@ -29,7 +29,6 @@ const Row = styled.div`
 const Col = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 33%;
 `;
 
 const LinkBlock = styled.div`
