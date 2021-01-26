@@ -25,7 +25,6 @@ import Contact from "./pages/Contact";
 // TODO: Implement Chat room invite
 // TODO: Implement Form behavior
 // TODO: Implement state management
-// TODO: Replace navbar
 // TODO: Build component stories
 // TODO: Write component tests
 
