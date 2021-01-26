@@ -22,7 +22,15 @@ const SectionHeading = styled.div`
 `;
 
 const SectionParagraph = styled.p`
-  font-size: 18px;
+  font-size: 48px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    font-size: 32px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
+    font-size: 24px;
+  }
 `;
 
 const SectionColumns = styled.div`

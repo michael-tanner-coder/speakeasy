@@ -70,6 +70,7 @@ const HeroItems = styled.div`
 interface HeroProps {
   setPage: React.Dispatch<React.SetStateAction<string>>;
 }
+
 const HeroSectionArea: React.FC<HeroProps> = ({ setPage }) => {
   return (
     <SectionWrapper>
