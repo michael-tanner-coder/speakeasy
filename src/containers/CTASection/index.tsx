@@ -63,6 +63,7 @@ const Col = styled.div`
 
 const Phone = styled.img`
   max-width: 450px;
+  width: 100%;
 `;
 
 const CTASection = () => {

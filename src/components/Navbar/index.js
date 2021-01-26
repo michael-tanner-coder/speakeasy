@@ -102,11 +102,7 @@ const NavbarComponent = ({ setPage }) => {
         </div>
       </div>
       <div className="navNarrow">
-        <img
-          src={MenuIcon}
-          className="fa fa-bars fa-2x"
-          onClick={() => burgerToggle()}
-        />
+        <img src={MenuIcon} onClick={() => burgerToggle()} />
         <div className="narrowLinks">
           {menuItems.map((item) => {
             return (
