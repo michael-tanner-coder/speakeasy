@@ -1,66 +1,82 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "../../components/Button";
-const SectionWrapper = styled.div`
-  margin: 25vh;
-  padding: 4rem;
+import PhoneImg from "../../images/Phone.png";
+const SectionWrapper = styled.section`
+  margin: 25vh auto;
+  max-width: 14750px;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
-const Heading = () => {
-  return <h2>NOW IN BETA</h2>;
-};
+const CTAButton = styled(Button)`
+  width: auto;
+  height: auto;
+  max-width: 300px;
+  padding-right: 40px;
+  padding-left: 40px;
+  border-radius: 32px;
+  font-family: Roboto, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  background-clip: border-box;
+  background: white;
+  color: ${({ theme }) => theme.color.primary.light};
+  border: 3px solid ${({ theme }) => theme.color.primary.light};
+  margin: 0 auto;
 
-const SubHeading = () => {
-  return (
-    <div>
-      <h3>Join the fun</h3>
-      <img src="" alt="" />
-    </div>
-  );
-};
+  &:hover {
+    color: white;
+  }
+`;
 
-const Phone = styled.img``;
+const SectionHeading = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  h2 {
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+  img {
+    margin-bottom: 30px;
+    margin-left: 15px;
+  }
+`;
+
+const Col = styled.div`
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const Phone = styled.img`
+  max-width: 450px;
+`;
 
 const CTASection = () => {
   return (
-    // <SectionWrapper>
-    //   <Phone />
-    //   <Heading />
-    //   <SubHeading />
-    //   <Button shade="light">Make an Account</Button>
-    // </SectionWrapper>
-    <div className="cta">
-      <div className="container-2 w-container">
-        <h1 className="heading-3">NOW IN BETA</h1>
-        <img
-          src="https://uploads-ssl.webflow.com/5f4ac872d0772879163d4751/600b42ebe847f1806befad90_Phone%20(1).png"
-          loading="lazy"
-          sizes="(max-width: 479px) 100vw, 550px"
-          srcSet="
-          https://uploads-ssl.webflow.com/5f4ac872d0772879163d4751/600b42ebe847f1806befad90_Phone%20(1)-p-500.png   500w,
-          https://uploads-ssl.webflow.com/5f4ac872d0772879163d4751/600b42ebe847f1806befad90_Phone%20(1)-p-800.png   800w,
-          https://uploads-ssl.webflow.com/5f4ac872d0772879163d4751/600b42ebe847f1806befad90_Phone%20(1)-p-1080.png 1080w,
-          https://uploads-ssl.webflow.com/5f4ac872d0772879163d4751/600b42ebe847f1806befad90_Phone%20(1)-p-1600.png 1600w,
-          https://uploads-ssl.webflow.com/5f4ac872d0772879163d4751/600b42ebe847f1806befad90_Phone%20(1)-p-2000.png 2000w,
-          https://uploads-ssl.webflow.com/5f4ac872d0772879163d4751/600b42ebe847f1806befad90_Phone%20(1).png        2416w
-        "
-          alt=""
-          className="image-3"
-        />
-        <div className="div-block-3">
-          <h1 className="heading-4">Join the Fun</h1>
+    <SectionWrapper>
+      <Col>
+        <Phone src={PhoneImg} loading="lazy" alt="" />
+        <SectionHeading className="div-block-3">
+          <h2 className="heading-4">Join the Fun</h2>
           <img
             src="https://uploads-ssl.webflow.com/5f4ac872d0772879163d4751/600b35ce4fddaea120c6b836_ExMark.svg"
             loading="lazy"
             alt=""
-            className="image-4"
           />
-        </div>
-        <a href="#" className="button w-button">
+        </SectionHeading>
+        <CTAButton href="#" className="button w-button">
           Make an Account
-        </a>
-      </div>
-    </div>
+        </CTAButton>
+      </Col>
+    </SectionWrapper>
   );
 };
 

@@ -1,14 +1,40 @@
 import React from "react";
 import styled from "styled-components";
 import QuestionMark from "../../images/QuestionMark.svg";
-import Image1 from "../../images/Img1.png";
-import Image2 from "../../images/Img2.png";
-import Image3 from "../../images/Img3.png";
+import Access from "../../images/AccessIcon.svg";
+import Include from "../../images/IncludeIcon.svg";
+import Clear from "../../images/ClarityIcon.svg";
 
 // Section
-const SectionWrapper = styled.div`
-  margin: 25vh 0;
-  padding: 4rem;
+const SectionWrapper = styled.section`
+  margin: 25vh auto;
+  max-width: 14750px;
+  padding: 2rem;
+`;
+
+const SectionHeading = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  h2 {
+    font-size: 48px;
+  }
+
+  img {
+    margin-bottom: -30px;
+  }
+`;
+
+const SectionColumns = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media (max-width: 1050px) {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+  }
 `;
 
 // Header
@@ -48,6 +74,7 @@ const Header: React.FC<HeaderProps> = ({ text }) => {
 const DetailGrid = styled.div`
   margin-top: 4rem;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   gap: 20px;
 
@@ -63,65 +90,44 @@ interface DetailProps {
   image?: string;
 }
 
-const rotation = "-180deg";
-
 const DetailWrapper = styled.div`
-  position: relative;
-  padding: 10px;
+  max-width: 260px;
+  margin: 0 auto;
   .background {
-    background: #25272c;
-    max-width: 320px;
-    max-height: 173px;
-    height: 100%;
-  }
-  h3 {
-    margin: 0;
-    font-size: 36px;
-    text-transform: uppercase;
-    font-weight: normal;
-    text-align: right;
-  }
-
-  .background-heading {
-    position: absolute;
-    text-align: right;
-    top: 0;
-    right: 0;
-    transform: rotate(-270deg);
-    opacity: 0.18;
-
-    /* Legacy vendor prefixes that you probably don't need... */
-
-    /* Safari */
-    -webkit-transform: rotate(-270deg);
-
-    /* Firefox */
-    -moz-transform: rotate(-270deg);
-
-    /* IE */
-    -ms-transform: rotate(-270deg);
-
-    /* Opera */
-    -o-transform: rotate(-270deg);
+    background: ${({ theme }) => theme.color.primary.light};
+    border-radius: 16px;
+    height: 223px;
+    width: 251px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 
   img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    margin: 0 auto;
+  }
+
+  h3 {
+    font-size: 36px;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
   }
 `;
 
-const Detail: React.FC<DetailProps> = ({ heading, paragraph, side, image }) => {
+const Detail: React.FC<DetailProps> = ({ heading, paragraph, image }) => {
   return (
     <DetailWrapper>
       <div className="background">
-        <img width="213px" height="115px" src={Image1} alt="" />
-        <h3>{heading}</h3>
-        <h3 className="background-heading">{heading}</h3>
+        <img width="213px" height="115px" src={image} alt="" />
       </div>
+      <h3>{heading}</h3>
       <p>{paragraph}</p>
     </DetailWrapper>
   );
@@ -129,70 +135,42 @@ const Detail: React.FC<DetailProps> = ({ heading, paragraph, side, image }) => {
 
 const DetailsSection = () => {
   return (
-    <div className="section">
-      <div className="div-block-5">
+    <SectionWrapper className="section">
+      <SectionHeading className="div-block-5">
         <h2 className="heading">
           Why <br />
           speakEasy
         </h2>
-        <img
-          src="https://uploads-ssl.webflow.com/5f4ac872d0772879163d4751/600b35c39a21887ea45d225b_QuestionMark.svg"
-          loading="lazy"
-          alt=""
-        />
-      </div>
-      <div className="columns-3 w-row">
+        <img src={QuestionMark} loading="lazy" alt="" />
+      </SectionHeading>
+      <DetailGrid>
         <div className="column-2 w-col w-col-4">
-          <div className="div-block">
-            <img
-              src="https://uploads-ssl.webflow.com/5f4ac872d0772879163d4751/600b13282d1a9774bd88be28_Img1.png"
-              loading="lazy"
-              alt=""
-              className="corner-img"
-            />
-            <h3 className="heading-2 detail-heading">Accessibility</h3>
-            <h3 className="heading-2 bg-text">Accessibility</h3>
-          </div>
-          <p className="paragraph-2">
-            speakEasy is designed to be accessible to those who have difficulty
-            discerning tone through text.
-          </p>
+          <Detail
+            heading="Accessibility"
+            paragraph=" speakEasy is designed to be accessible to those who have difficulty
+            discerning tone through text."
+            image={Access}
+          ></Detail>
         </div>
         <div className="column-3 w-col w-col-4">
-          <div className="div-block">
-            <img
-              src="https://uploads-ssl.webflow.com/5f4ac872d0772879163d4751/600b20813e156195a958516d_Img2.png"
-              loading="lazy"
-              alt=""
-              className="corner-img"
-            />
-            <h3 className="heading-2 detail-heading">INCLUSIVITY</h3>
-            <h3 className="heading-2 bg-text inclusive-head">INCLUSIVITY</h3>
-          </div>
-          <p className="paragraph-2">
-            Even people from two different cultures or languages can communicate
+          <Detail
+            heading="INCLUSIVITY"
+            paragraph=" Even people from two different cultures or languages can communicate
             more easily with speakEasy&#x27;s tone indication. Everyone gets a
-            chance to be heard and understood.
-          </p>
+            chance to be heard and understood."
+            image={Include}
+          ></Detail>
         </div>
         <div className="column-4 w-col w-col-4">
-          <div className="div-block">
-            <img
-              src="https://uploads-ssl.webflow.com/5f4ac872d0772879163d4751/600b208cd592494fb36fcb5e_Img3.png"
-              loading="lazy"
-              alt=""
-              className="corner-img"
-            />
-            <h3 className="heading-2 detail-heading">TOTAL CLARITY</h3>
-            <h3 className="heading-2 bg-text">TOTAL CLARITY</h3>
-          </div>
-          <p className="paragraph-2">
-            Avoid any frustrating misunderstandings with your friends. With
-            speakEasy, you say what you mean and mean what you say.
-          </p>
+          <Detail
+            heading="TOTAL CLARITY"
+            paragraph="Avoid any frustrating misunderstandings with your friends. With
+            speakEasy, you say what you mean and mean what you say."
+            image={Clear}
+          ></Detail>
         </div>
-      </div>
-    </div>
+      </DetailGrid>
+    </SectionWrapper>
   );
 };
 

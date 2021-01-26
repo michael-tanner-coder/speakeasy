@@ -11,6 +11,14 @@ const SectionWrapper = styled.div`
 const SectionHeading = styled.div`
   display: flex;
   flex-direction: row;
+
+  h2 {
+    font-size: 48px;
+  }
+
+  img {
+    margin-bottom: -45px;
+  }
 `;
 
 const SectionParagraph = styled.p`
@@ -43,9 +51,7 @@ const WhatSection = () => {
     <SectionWrapper>
       <SectionHeading>
         <h2>
-          What
-          <br />
-          is
+          What is
           <br />
           speakEasy
         </h2>
