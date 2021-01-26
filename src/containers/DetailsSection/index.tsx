@@ -119,6 +119,8 @@ const DetailWrapper = styled.div`
   p {
     margin: 0;
   }
+
+  margin-bottom: 2rem;
 `;
 
 const Detail: React.FC<DetailProps> = ({ heading, paragraph, image }) => {

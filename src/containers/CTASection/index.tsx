@@ -5,7 +5,7 @@ import PhoneImg from "../../images/Phone.png";
 import Tones from "../../images/Tones.svg";
 
 const SectionWrapper = styled.section`
-  margin: 25vh auto;
+  margin: 25vh auto 0 auto;
   max-width: 14750px;
   padding: 2rem;
 
