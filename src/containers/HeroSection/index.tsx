@@ -2,14 +2,14 @@ import React from "react";
 import Button from "../../components/Button";
 import styled from "styled-components";
 import SELogo from "../../images/SpeakEasyLogo.svg";
-
+import Tones from "../../images/Tones.svg";
 const SectionWrapper = styled.div`
   height: fit-content;
   margin-top: 20vh;
   margin-bottom: 20vh;
   padding: 2rem;
   background-color: #25272c;
-  background-image: ${(props) => `url("../../images/Tones.svg")`};
+  background-image: ${(props) => `url(${Tones})`};
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -58,6 +58,7 @@ const Logo = styled.img`
   width: 100%;
   height: auto;
 `;
+
 interface HeroProps {
   setPage: React.Dispatch<React.SetStateAction<string>>;
 }

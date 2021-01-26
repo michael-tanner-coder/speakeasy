@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Button from "../../components/Button";
 import PhoneImg from "../../images/Phone.png";
+import Tones from "../../images/Tones.svg";
+
 const SectionWrapper = styled.section`
   margin: 25vh auto;
   max-width: 14750px;
@@ -10,6 +12,10 @@ const SectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  background-image: ${(props) => `url(${Tones})`};
+  background-repeat: repeat;
+  background-size: contain;
 `;
 
 const CTAButton = styled(Button)`
@@ -64,7 +70,7 @@ const CTASection = () => {
     <SectionWrapper>
       <Col>
         <Phone src={PhoneImg} loading="lazy" alt="" />
-        <SectionHeading className="div-block-3">
+        <SectionHeading>
           <h2 className="heading-4">Join the Fun</h2>
           <img
             src="https://uploads-ssl.webflow.com/5f4ac872d0772879163d4751/600b35ce4fddaea120c6b836_ExMark.svg"
