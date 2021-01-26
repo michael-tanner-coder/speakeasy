@@ -3,21 +3,23 @@ import Button from "../../components/Button";
 import styled from "styled-components";
 import SELogo from "../../images/SpeakEasyLogo.svg";
 import Tones from "../../images/Tones.svg";
+
 const SectionWrapper = styled.div`
-  height: fit-content;
   margin-top: 20vh;
   margin-bottom: 20vh;
-  padding: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   background-color: #25272c;
+  z-index: 0;
+`;
+
+const BannerImage = styled.div`
+  width: 100%;
+  z-index: 2;
+  padding: 2rem;
   background-image: ${(props) => `url(${Tones})`};
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  .logo-column {
-    margin: 0 auto;
-
-    width: fit-content;
-  }
+  background-repeat: repeat;
+  background-size: contain;
 `;
 
 const Tagline = styled.p`
@@ -57,6 +59,12 @@ const HeroButton = styled(Button)`
 const Logo = styled.img`
   width: 100%;
   height: auto;
+  max-width: 515px;
+`;
+
+const HeroItems = styled.div`
+  margin: 0 auto;
+  width: fit-content;
 `;
 
 interface HeroProps {
@@ -65,20 +73,22 @@ interface HeroProps {
 const HeroSectionArea: React.FC<HeroProps> = ({ setPage }) => {
   return (
     <SectionWrapper>
-      <div className="logo-column">
-        <Logo src={SELogo} loading="lazy" alt="" />
-        <Tagline className="paragraph">
-          The chat app for maximum clarity
-        </Tagline>
-        <HeroButton
-          shade="light"
-          href="#"
-          className="button w-button"
-          onClick={() => setPage("app")}
-        >
-          Join the Beta!
-        </HeroButton>
-      </div>
+      <BannerImage>
+        <HeroItems>
+          <Logo src={SELogo} loading="lazy" alt="" />
+          <Tagline className="paragraph">
+            The chat app for maximum clarity
+          </Tagline>
+          <HeroButton
+            shade="light"
+            href="#"
+            className="button w-button"
+            onClick={() => setPage("app")}
+          >
+            Join the Beta!
+          </HeroButton>
+        </HeroItems>
+      </BannerImage>
     </SectionWrapper>
   );
 };
