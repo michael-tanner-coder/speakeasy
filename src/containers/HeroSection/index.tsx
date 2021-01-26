@@ -3,6 +3,7 @@ import Button from "../../components/Button";
 import styled from "styled-components";
 import SELogo from "../../images/SpeakEasyLogo.svg";
 import Tones from "../../images/Tones.svg";
+import { Link } from "react-router-dom";
 
 const SectionWrapper = styled.div`
   margin-top: 20vh;
@@ -80,14 +81,16 @@ const HeroSectionArea: React.FC<HeroProps> = ({ setPage }) => {
           <Tagline className="paragraph">
             The chat app for maximum clarity
           </Tagline>
-          <HeroButton
-            shade="light"
-            href="#"
-            className="button w-button"
-            onClick={() => setPage("app")}
-          >
-            Join the Beta!
-          </HeroButton>
+          <Link style={{ textDecoration: "none" }} to="/app">
+            <HeroButton
+              shade="light"
+              href="#"
+              className="button w-button"
+              onClick={() => setPage("app")}
+            >
+              Join the Beta!
+            </HeroButton>
+          </Link>
         </HeroItems>
       </BannerImage>
     </SectionWrapper>

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const FooterWrapper = styled.div`
   background: ${({ theme }) => theme.color.primary.light};
@@ -43,9 +44,9 @@ const Footer = () => {
         <Col className="w-col w-col-4">
           <h2>Contact</h2>
           <LinkBlock className="div-block-2">
-            <a href="#" className="nav-link footer-link">
+            <Link to="/contact" className="nav-link footer-link">
               Contact Form
-            </a>
+            </Link>
             <a href="#" className="nav-link footer-link">
               Email: michaelmontytanner@gmail.com
             </a>

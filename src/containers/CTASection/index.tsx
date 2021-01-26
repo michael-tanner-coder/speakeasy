@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Button from "../../components/Button";
 import PhoneImg from "../../images/Phone.png";
 import Tones from "../../images/Tones.svg";
+import { Link } from "react-router-dom";
 
 const SectionWrapper = styled.section`
   margin: 25vh auto 0 auto;
@@ -79,9 +80,11 @@ const CTASection = () => {
             alt=""
           />
         </SectionHeading>
-        <CTAButton href="#" className="button w-button">
-          Make an Account
-        </CTAButton>
+        <Link style={{ textDecoration: "none" }} to="/app">
+          <CTAButton href="#" className="button w-button">
+            Make an Account
+          </CTAButton>
+        </Link>
       </Col>
     </SectionWrapper>
   );

@@ -88,6 +88,7 @@ interface DetailProps {
   paragraph: string;
   side?: string;
   image?: string;
+  imageMarginLeft?: string;
 }
 
 const DetailWrapper = styled.div`
@@ -123,11 +124,22 @@ const DetailWrapper = styled.div`
   margin-bottom: 2rem;
 `;
 
-const Detail: React.FC<DetailProps> = ({ heading, paragraph, image }) => {
+const Detail: React.FC<DetailProps> = ({
+  heading,
+  paragraph,
+  image,
+  imageMarginLeft,
+}) => {
   return (
     <DetailWrapper>
       <div className="background">
-        <img width="213px" height="115px" src={image} alt="" />
+        <img
+          style={{ marginLeft: imageMarginLeft }}
+          width="213px"
+          height="115px"
+          src={image}
+          alt=""
+        />
       </div>
       <h3>{heading}</h3>
       <p>{paragraph}</p>
@@ -146,7 +158,7 @@ const DetailsSection = () => {
         <img src={QuestionMark} loading="lazy" alt="" />
       </SectionHeading>
       <DetailGrid>
-        <div className="column-2 w-col w-col-4">
+        <div>
           <Detail
             heading="Accessibility"
             paragraph=" speakEasy is designed to be accessible to those who have difficulty
@@ -154,7 +166,7 @@ const DetailsSection = () => {
             image={Access}
           ></Detail>
         </div>
-        <div className="column-3 w-col w-col-4">
+        <div>
           <Detail
             heading="INCLUSIVITY"
             paragraph=" Even people from two different cultures or languages can communicate
@@ -163,12 +175,13 @@ const DetailsSection = () => {
             image={Include}
           ></Detail>
         </div>
-        <div className="column-4 w-col w-col-4">
+        <div>
           <Detail
             heading="TOTAL CLARITY"
             paragraph="Avoid any frustrating misunderstandings with your friends. With
             speakEasy, you say what you mean and mean what you say."
             image={Clear}
+            imageMarginLeft="20px"
           ></Detail>
         </div>
       </DetailGrid>

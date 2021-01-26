@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import MenuIcon from "../../images/MenuIcon.svg";
-
+import { Link } from "react-router-dom";
 const NavWrapper = styled.nav`
   background-color: ${({ theme }) => theme.color.primary.light};
   overflow: hidden;
@@ -83,9 +83,9 @@ const NavbarComponent = ({ setPage }) => {
   };
 
   const menuItems = [
-    { name: "Home", page: "landing" },
-    { name: "App", page: "app" },
-    { name: "Contact", page: "contact" },
+    { name: "Home", page: "/" },
+    { name: "App", page: "/app" },
+    { name: "Contact", page: "/contact" },
   ];
 
   return (
@@ -94,9 +94,9 @@ const NavbarComponent = ({ setPage }) => {
         <div className="wideDiv">
           {menuItems.map((item) => {
             return (
-              <a href="#" onClick={() => setPage(item.page)}>
+              <Link href="#" to={item.page}>
                 {item.name}
-              </a>
+              </Link>
             );
           })}
         </div>
@@ -106,9 +106,9 @@ const NavbarComponent = ({ setPage }) => {
         <div className="narrowLinks">
           {menuItems.map((item) => {
             return (
-              <a href="#" onClick={() => setPage(item.page)}>
+              <Link href="#" to={item.page}>
                 {item.name}
-              </a>
+              </Link>
             );
           })}
         </div>

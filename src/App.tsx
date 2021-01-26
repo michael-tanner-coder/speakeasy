@@ -1,5 +1,6 @@
 // Main dependencies
 import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 // Authentication
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -34,21 +35,29 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      {(page === "app" && (
-        <AppWrapper className="App">
-          <Header>
-            <h1>speakEASY</h1>
-            <SignOut />
-          </Header>
-          <section>{user ? <ChatRoom /> : <SignIn />}</section>
-        </AppWrapper>
-      )) || (
-        <PageWrapper setPage={setPage}>
-          {page === "landing" && <Landing setPage={setPage} />}
-
-          {page === "contact" && <Contact />}
-        </PageWrapper>
-      )}
+      <Router>
+        <Switch>
+          <Route path="/app">
+            <AppWrapper className="App">
+              <Header>
+                <h1>speakEASY</h1>
+                <SignOut />
+              </Header>
+              <section>{user ? <ChatRoom /> : <SignIn />}</section>
+            </AppWrapper>
+          </Route>
+          <Route path="/contact">
+            <PageWrapper setPage={setPage}>
+              <Contact />
+            </PageWrapper>
+          </Route>
+          <Route path="/">
+            <PageWrapper setPage={setPage}>
+              <Landing setPage={setPage} />
+            </PageWrapper>
+          </Route>
+        </Switch>
+      </Router>
     </ThemeProvider>
   );
 }
