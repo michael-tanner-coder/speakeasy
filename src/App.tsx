@@ -64,7 +64,7 @@ function App() {
               <Contact />
             </PageWrapper>
           </Route>
-          <Route path="/chat/:id">
+          <Route path="/chat">
             <AppWrapper className="App">
               <Header>
                 <h1>speakEASY</h1>

@@ -32,7 +32,7 @@ const ChatSelection = () => {
       {chats &&
         chats.map((chat) => {
           return (
-            <Link style={{ display: "block" }} to={"/chat/" + chat}>
+            <Link style={{ display: "block" }} to={"/chat?room=" + chat}>
               {chat}
             </Link>
           );

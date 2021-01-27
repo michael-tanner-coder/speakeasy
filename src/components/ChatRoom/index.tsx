@@ -6,6 +6,7 @@ import { firestore, firebase, auth } from "../../firebase/config";
 import { useParams } from "react-router-dom";
 // Hooks
 import { useCollectionData } from "react-firebase-hooks/firestore";
+import { useLocation } from "react-router-dom";
 
 // Components
 import ChatMessage from "../ChatMessage";
@@ -170,13 +171,20 @@ const SendButton = styled.button`
   }
 `;
 
+const useQuery = () => {
+  return new URLSearchParams(useLocation().search);
+};
+
 // Main component
 const ChatRoom = () => {
   interface RouteParams {
     id: string;
   }
-  const { id } = useParams<RouteParams>();
-  console.log(id);
+  // const { id } = useParams<RouteParams>();
+  // console.log(id);
+
+  const urlquery = useQuery();
+  const id = urlquery.get("room") as string;
 
   // Data
   const messagesRef = firestore
