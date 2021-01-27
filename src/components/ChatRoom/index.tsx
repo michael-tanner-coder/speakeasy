@@ -3,7 +3,7 @@
 // Main dependencies
 import React, { useRef, useState, useEffect } from "react";
 import { firestore, firebase, auth } from "../../firebase/config";
-
+import { useParams } from "react-router-dom";
 // Hooks
 import { useCollectionData } from "react-firebase-hooks/firestore";
 
@@ -172,8 +172,17 @@ const SendButton = styled.button`
 
 // Main component
 const ChatRoom = () => {
+  interface RouteParams {
+    id: string;
+  }
+  const { id } = useParams<RouteParams>();
+  console.log(id);
+
   // Data
-  const messagesRef = firestore.collection("messages");
+  const messagesRef = firestore
+    .collection("rooms")
+    .doc(id)
+    .collection("messages");
   const query = messagesRef.orderBy("createdAt").limit(25); //Adjust limit and load messages in increments
   const [messages] = useCollectionData<Message>(query, { idField: "id" });
 

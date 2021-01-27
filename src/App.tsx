@@ -11,6 +11,7 @@ import SignIn from "./components/SignIn";
 import SignOut from "./components/SignOut";
 import ChatRoom from "./components/ChatRoom";
 import Header from "./components/Header";
+import CreateRoomButton from "./components/CreateRoomButton";
 
 // Styles
 import { ThemeProvider } from "styled-components";
@@ -42,13 +43,37 @@ function App() {
                 <h1>speakEASY</h1>
                 <SignOut />
               </Header>
-              <section>{user ? <ChatRoom /> : <SignIn />}</section>
+              <section>
+                {user ? (
+                  <>
+                    <h2>Create a chat</h2>
+                    <CreateRoomButton />
+                  </>
+                ) : (
+                  <SignIn />
+                )}
+              </section>
             </AppWrapper>
           </Route>
           <Route path="/contact">
             <PageWrapper setPage={setPage}>
               <Contact />
             </PageWrapper>
+          </Route>
+          <Route path="/create-chat">
+            <AppWrapper>
+              <h2>Create a chat</h2>
+              <CreateRoomButton />
+            </AppWrapper>
+          </Route>
+          <Route path="/chat/:id">
+            <AppWrapper className="App">
+              <Header>
+                <h1>speakEASY</h1>
+                <SignOut />
+              </Header>
+              <section>{user ? <ChatRoom /> : <SignIn />}</section>
+            </AppWrapper>
           </Route>
           <Route path="/">
             <PageWrapper setPage={setPage}>
