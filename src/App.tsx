@@ -13,6 +13,9 @@ import ChatRoom from "./components/ChatRoom";
 import Header from "./components/Header";
 import CreateRoomButton from "./components/CreateRoomButton";
 
+// Containers
+import ChatSelection from "./containers/ChatSelection";
+
 // Styles
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
@@ -48,6 +51,7 @@ function App() {
                   <>
                     <h2>Create a chat</h2>
                     <CreateRoomButton />
+                    <ChatSelection />
                   </>
                 ) : (
                   <SignIn />
@@ -59,12 +63,6 @@ function App() {
             <PageWrapper setPage={setPage}>
               <Contact />
             </PageWrapper>
-          </Route>
-          <Route path="/create-chat">
-            <AppWrapper>
-              <h2>Create a chat</h2>
-              <CreateRoomButton />
-            </AppWrapper>
           </Route>
           <Route path="/chat/:id">
             <AppWrapper className="App">
