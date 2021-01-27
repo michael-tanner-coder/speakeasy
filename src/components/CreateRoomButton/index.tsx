@@ -4,12 +4,14 @@ import { auth } from "../../firebase/config";
 import { Link } from "react-router-dom";
 import { firestore } from "../../firebase/config";
 import styled from "styled-components";
+import { init, send } from "emailjs-com";
 
 // Types
 import Message from "../../models/Message";
 import User from "../../models/User";
 import Room from "../../models/Room";
 
+init(process.env.REACT_APP_EMAILJS_USER_ID as string);
 const RoomLink = styled.textarea`
   color: black;
 `;
@@ -23,6 +25,7 @@ const Wrapper = styled.div`
 
 const CreateRoomButton = () => {
   const [link, setLink] = useState("");
+  const [invited, setInvited] = useState(false);
   const [currentUser, setCurrentUser] = useState<any>();
   const textRef = useRef<HTMLTextAreaElement>(
     document.createElement("textarea")
@@ -88,7 +91,21 @@ const CreateRoomButton = () => {
   };
 
   const sendEmail = () => {
-    console.log("sending email");
+    if (auth.currentUser) {
+      // send the message and get a callback with an error or details of the message that was sent
+      send("default_service", "template_ocqsdjy", {
+        from_name: auth.currentUser.email,
+        to_name: "michaeltanner@bestfit.design",
+        invite_link: link,
+      })
+        .then((res) => {
+          if (res.status === 200) {
+            setInvited(true);
+          }
+        })
+        // Handle errors here however you like
+        .catch((err) => console.error("Failed to send feedback. Error: ", err));
+    }
   };
 
   return (
