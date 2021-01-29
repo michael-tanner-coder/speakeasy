@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { auth, firestore } from "../../firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import ChatLink from "../../components/ChatLink";
 
 const ChatSelection = () => {
   const [user] = useAuthState(auth);
@@ -27,17 +27,18 @@ const ChatSelection = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{ maxHeight: "400px", overflowY: "scroll" }}>
       <h1 style={{ display: "block", color: "white" }}>Select a Chat</h1>
       {chats &&
         chats.map((chat) => {
           return (
-            <Link
+            <ChatLink
               style={{ display: "block", color: "white" }}
               to={"/chat?room=" + chat}
+              link={chat}
             >
               {chat}
-            </Link>
+            </ChatLink>
           );
         })}
     </div>
