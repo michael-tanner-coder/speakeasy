@@ -16,6 +16,12 @@ const RoomLink = styled.textarea`
   color: black;
 `;
 
+const Input = styled.input`
+  border: none;
+  border-radius: 16px;
+  color: gray;
+`;
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -26,6 +32,7 @@ const Wrapper = styled.div`
 const CreateRoomButton = () => {
   const [link, setLink] = useState("");
   const [invited, setInvited] = useState(false);
+  const [email, setEmail] = useState("");
   const [currentUser, setCurrentUser] = useState<any>();
   const textRef = useRef<HTMLTextAreaElement>(
     document.createElement("textarea")
@@ -95,7 +102,7 @@ const CreateRoomButton = () => {
       // send the message and get a callback with an error or details of the message that was sent
       send("default_service", "template_ocqsdjy", {
         from_name: auth.currentUser.email,
-        to_name: "michaeltanner@bestfit.design",
+        to_name: email,
         invite_link: link,
       })
         .then((res) => {
@@ -115,7 +122,13 @@ const CreateRoomButton = () => {
         <Wrapper>
           <p>Room Link:</p>
           <RoomLink ref={textRef} value={link} />
-          <Button onClick={() => sendEmail()}>Send</Button>
+          <Input
+            type="email"
+            onChange={({ target }) => setEmail(target.value)}
+          />
+          <Button disabled={email ? false : true} onClick={() => sendEmail()}>
+            Send
+          </Button>
           <Button onClick={() => copyText()}>Copy</Button>
         </Wrapper>
       )}

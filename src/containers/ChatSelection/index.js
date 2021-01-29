@@ -28,11 +28,14 @@ const ChatSelection = () => {
 
   return (
     <div>
-      <h1>Select a Chat</h1>
+      <h1 style={{ display: "block", color: "white" }}>Select a Chat</h1>
       {chats &&
         chats.map((chat) => {
           return (
-            <Link style={{ display: "block" }} to={"/chat?room=" + chat}>
+            <Link
+              style={{ display: "block", color: "white" }}
+              to={"/chat?room=" + chat}
+            >
               {chat}
             </Link>
           );
