@@ -24,6 +24,9 @@ import styled from "styled-components";
 import ToneIcon from "../../images/ToneButton.svg";
 import SendIcon from "../../images/SendIcon.svg";
 
+// Utils
+import addChatToUserProfile from "../../util/addChatToUserProfile";
+
 // Styled components
 const Tone = styled.div`
   p {
@@ -232,6 +235,10 @@ const ChatRoom = () => {
   useEffect(() => {
     console.log(open);
   }, [open]);
+
+  useEffect(() => {
+    addChatToUserProfile(id);
+  }, []);
 
   // Render
   return (

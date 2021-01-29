@@ -11,6 +11,9 @@ import Message from "../../models/Message";
 import User from "../../models/User";
 import Room from "../../models/Room";
 
+// Utils
+import addChatToUserProfile from "../../util/addChatToUserProfile";
+
 init(process.env.REACT_APP_EMAILJS_USER_ID as string);
 const RoomLink = styled.textarea`
   color: black;
@@ -59,14 +62,7 @@ const CreateRoomButton = () => {
   }, []);
 
   const updateUser = () => {
-    if (auth.currentUser && link) {
-      firestore
-        .collection("users")
-        .doc(auth.currentUser.uid)
-        .update({
-          chats: [...currentUser.chats, link],
-        });
-    }
+    addChatToUserProfile(link);
   };
 
   useEffect(() => {
