@@ -45,6 +45,7 @@ function App() {
         <ChatRoomFetch />
         <Router>
           <Switch>
+            {/* Sign on */}
             <Route path="/app">
               <AppWrapper className="App">
                 <Header>
@@ -64,11 +65,15 @@ function App() {
                 </section>
               </AppWrapper>
             </Route>
+
+            {/* Contact form */}
             <Route path="/contact">
               <PageWrapper>
                 <Contact />
               </PageWrapper>
             </Route>
+
+            {/* Chat room */}
             <Route path="/chat">
               <AppWrapper className="App">
                 <Header>
@@ -78,6 +83,8 @@ function App() {
                 <section>{user ? <ChatRoom /> : <SignIn />}</section>
               </AppWrapper>
             </Route>
+
+            {/* Landing page */}
             <Route path="/">
               <PageWrapper>
                 <Landing />
