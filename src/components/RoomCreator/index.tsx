@@ -6,7 +6,7 @@ import { firestore } from "../../firebase/config";
 
 // Components
 import Button from "../Button";
-import styled from "styled-components";
+import { Wrapper, RoomLink, Input } from "./styles/RoomCreator";
 
 // Types
 import Room from "../../models/Room";
@@ -17,24 +17,6 @@ import { init, send } from "emailjs-com";
 
 // Initial process to send over emailJS
 init(process.env.REACT_APP_EMAILJS_USER_ID as string);
-
-// Styled Components
-const RoomLink = styled.textarea`
-  color: black;
-`;
-
-const Input = styled.input`
-  border: none;
-  border-radius: 16px;
-  color: gray;
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-`;
 
 // Main Component
 const RoomCreator = () => {
