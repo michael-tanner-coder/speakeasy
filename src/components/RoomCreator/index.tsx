@@ -20,6 +20,7 @@ init(process.env.REACT_APP_EMAILJS_USER_ID as string);
 
 // Main Component
 const RoomCreator = () => {
+  // State + refs
   const [link, setLink] = useState("");
   const [invited, setInvited] = useState(false);
   const [email, setEmail] = useState("");
@@ -28,13 +29,10 @@ const RoomCreator = () => {
     document.createElement("textarea")
   );
 
+  // Functions
   const updateUser = () => {
     addChatToUserProfile(link);
   };
-
-  useEffect(() => {
-    updateUser();
-  }, [link]);
 
   const createRoom = () => {
     if (auth.currentUser) {
@@ -77,6 +75,11 @@ const RoomCreator = () => {
         .catch((err) => console.error("Failed to send feedback. Error: ", err));
     }
   };
+
+  // Side effects
+  useEffect(() => {
+    updateUser();
+  }, [link]);
 
   return (
     <div>
