@@ -7,7 +7,6 @@ import { Wrapper, RoomLink, Input } from "./styles/RoomLinkSender";
 
 // State + Data
 import { auth } from "../../firebase/config";
-import { firestore } from "../../firebase/config";
 
 // Initial process to send over emailJS
 init(process.env.REACT_APP_EMAILJS_USER_ID as string);
@@ -16,11 +15,13 @@ interface RoomLinkSenderProps {
   link: string;
 }
 const RoomLinkSender: React.FC<RoomLinkSenderProps> = ({ link }) => {
+  // Hooks
   const textRef = useRef<HTMLTextAreaElement>(
     document.createElement("textarea")
   );
   const [email, setEmail] = useState("");
 
+  // Functions
   const copyText = () => {
     console.log("copying");
     textRef.current.select();
@@ -46,6 +47,7 @@ const RoomLinkSender: React.FC<RoomLinkSenderProps> = ({ link }) => {
     }
   };
 
+  // Render
   return (
     <Wrapper>
       <p>Room Link:</p>
