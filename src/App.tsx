@@ -80,7 +80,7 @@ function App() {
             </Route>
             <Route path="/">
               <PageWrapper>
-                <Landing setPage={setPage} />
+                <Landing />
               </PageWrapper>
             </Route>
           </Switch>

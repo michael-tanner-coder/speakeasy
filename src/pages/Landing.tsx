@@ -5,14 +5,12 @@ import CTASection from "../containers/CTASection";
 import WhatSection from "../containers/WhatSection";
 import EmojiSection from "../containers/EmojiSection";
 
-interface LandingProps {
-  setPage: React.Dispatch<React.SetStateAction<string>>;
-}
-const Landing: React.FC<LandingProps> = ({ setPage }) => {
+interface LandingProps {}
+const Landing: React.FC<LandingProps> = () => {
   return (
     <div>
       {/* Hero */}
-      <HeroSection setPage={setPage} />
+      <HeroSection />
 
       {/* What */}
       <WhatSection />

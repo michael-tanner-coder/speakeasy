@@ -72,11 +72,9 @@ const HeroItems = styled.div`
   width: fit-content;
 `;
 
-interface HeroProps {
-  setPage: React.Dispatch<React.SetStateAction<string>>;
-}
+interface HeroProps {}
 
-const HeroSectionArea: React.FC<HeroProps> = ({ setPage }) => {
+const HeroSectionArea: React.FC<HeroProps> = () => {
   return (
     <SectionWrapper>
       <BannerImage>
@@ -86,12 +84,7 @@ const HeroSectionArea: React.FC<HeroProps> = ({ setPage }) => {
             The chat app for maximum clarity
           </Tagline>
           <Link style={{ textDecoration: "none" }} to="/app">
-            <HeroButton
-              shade="light"
-              href="#"
-              className="button w-button"
-              onClick={() => setPage("app")}
-            >
+            <HeroButton shade="light" href="#" className="button w-button">
               Join the Beta!
             </HeroButton>
           </Link>
