@@ -13,12 +13,14 @@ const addChatToUserProfile = (link: string) => {
           console.log(doc.data());
 
           const update = (doc: any) => {
-            firestore
-              .collection("users")
-              .doc(uid)
-              .update({
-                chats: [...doc.data().chats, link],
-              });
+            if (!doc.data().chats.includes(link)) {
+              firestore
+                .collection("users")
+                .doc(uid)
+                .update({
+                  chats: [...doc.data().chats, link],
+                });
+            }
           };
 
           update(doc);
