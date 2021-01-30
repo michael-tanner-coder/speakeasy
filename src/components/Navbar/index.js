@@ -72,7 +72,7 @@ const NavWrapper = styled.nav`
   }
 `;
 
-const NavbarComponent = ({ setPage }) => {
+const NavbarComponent = () => {
   const burgerToggle = () => {
     let linksEl = document.querySelector(".narrowLinks");
     if (linksEl.style.display === "block") {

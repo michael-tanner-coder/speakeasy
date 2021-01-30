@@ -15,10 +15,10 @@ const PageStyles = styled.div`
   }
 `;
 
-const PageWrapper = ({ children, setPage }) => {
+const PageWrapper = ({ children }) => {
   return (
     <PageStyles>
-      <Navbar setPage={setPage} />
+      <Navbar />
       {children}
       <Footer />
     </PageStyles>

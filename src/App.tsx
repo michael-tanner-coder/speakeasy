@@ -65,7 +65,7 @@ function App() {
               </AppWrapper>
             </Route>
             <Route path="/contact">
-              <PageWrapper setPage={setPage}>
+              <PageWrapper>
                 <Contact />
               </PageWrapper>
             </Route>
@@ -79,7 +79,7 @@ function App() {
               </AppWrapper>
             </Route>
             <Route path="/">
-              <PageWrapper setPage={setPage}>
+              <PageWrapper>
                 <Landing setPage={setPage} />
               </PageWrapper>
             </Route>
