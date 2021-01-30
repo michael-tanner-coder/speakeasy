@@ -3,7 +3,7 @@
 // Main dependencies
 import React, { useRef, useState, useEffect } from "react";
 import { firestore, firebase, auth } from "../../firebase/config";
-import { useParams } from "react-router-dom";
+
 // Hooks
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useLocation } from "react-router-dom";
@@ -12,7 +12,6 @@ import { useLocation } from "react-router-dom";
 import ChatMessage from "../ChatMessage";
 import TextField from "../TextField";
 import ToneDrawer from "../ToneDrawer";
-import OutsideAlerter from "../OutsideAlerter";
 
 // Data + Types
 import tones from "../../tones";
@@ -183,8 +182,6 @@ const ChatRoom = () => {
   interface RouteParams {
     id: string;
   }
-  // const { id } = useParams<RouteParams>();
-  // console.log(id);
 
   const urlquery = useQuery();
   const id = urlquery.get("room") as string;
