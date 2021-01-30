@@ -49,7 +49,9 @@ function App() {
             <Route path="/app">
               <AppWrapper className="App">
                 <Header>
-                  <h1>speakEASY</h1>
+                  <Link to="/">
+                    <h1>speakEASY</h1>
+                  </Link>
                   <SignOut />
                 </Header>
                 <section>

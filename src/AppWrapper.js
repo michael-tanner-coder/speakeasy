@@ -58,5 +58,13 @@ const AppWrapper = styled.div`
     color: white;
     text-align: center;
   }
+
+  a {
+    text-decoration: none;
+    color: white;
+    &:hover {
+      color: gray;
+    }
+  }
 `;
 export default AppWrapper;
