@@ -1,7 +1,6 @@
 // Layout component for the sign in process
 
 import React from "react";
-import { firebase, auth } from "../../firebase/config";
 import SignInWrapper from "./styles/SignIn";
 import Button from "../Button";
 import signInWithGoogle from "../../util/signInWithGoogle";

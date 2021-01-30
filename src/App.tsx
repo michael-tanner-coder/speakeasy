@@ -1,7 +1,13 @@
 // Main dependencies
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from "recoil";
 // Authentication
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase/config";
@@ -34,53 +40,56 @@ import Contact from "./pages/Contact";
 
 function App() {
   const [user] = useAuthState(auth);
+  const userState = atom({ key: "userState", default: "default user" });
   const [page, setPage] = useState("landing");
 
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
-        <Switch>
-          <Route path="/app">
-            <AppWrapper className="App">
-              <Header>
-                <h1>speakEASY</h1>
-                <SignOut />
-              </Header>
-              <section>
-                {user ? (
-                  <>
-                    <h2>Create a chat</h2>
-                    <CreateRoomButton />
-                    <ChatSelection />
-                  </>
-                ) : (
-                  <SignIn />
-                )}
-              </section>
-            </AppWrapper>
-          </Route>
-          <Route path="/contact">
-            <PageWrapper setPage={setPage}>
-              <Contact />
-            </PageWrapper>
-          </Route>
-          <Route path="/chat">
-            <AppWrapper className="App">
-              <Header>
-                <h1>speakEASY</h1>
-                <SignOut />
-              </Header>
-              <section>{user ? <ChatRoom /> : <SignIn />}</section>
-            </AppWrapper>
-          </Route>
-          <Route path="/">
-            <PageWrapper setPage={setPage}>
-              <Landing setPage={setPage} />
-            </PageWrapper>
-          </Route>
-        </Switch>
-      </Router>
-    </ThemeProvider>
+    <RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Switch>
+            <Route path="/app">
+              <AppWrapper className="App">
+                <Header>
+                  <h1>speakEASY</h1>
+                  <SignOut />
+                </Header>
+                <section>
+                  {user ? (
+                    <>
+                      <h2>Create a chat</h2>
+                      <CreateRoomButton />
+                      <ChatSelection />
+                    </>
+                  ) : (
+                    <SignIn />
+                  )}
+                </section>
+              </AppWrapper>
+            </Route>
+            <Route path="/contact">
+              <PageWrapper setPage={setPage}>
+                <Contact />
+              </PageWrapper>
+            </Route>
+            <Route path="/chat">
+              <AppWrapper className="App">
+                <Header>
+                  <h1>speakEASY</h1>
+                  <SignOut />
+                </Header>
+                <section>{user ? <ChatRoom /> : <SignIn />}</section>
+              </AppWrapper>
+            </Route>
+            <Route path="/">
+              <PageWrapper setPage={setPage}>
+                <Landing setPage={setPage} />
+              </PageWrapper>
+            </Route>
+          </Switch>
+        </Router>
+      </ThemeProvider>
+    </RecoilRoot>
   );
 }
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { auth, firestore } from "../../firebase/config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import ChatLink from "../../components/ChatLink";
+import { useRecoilState } from "recoil";
 
 const ChatSelection = () => {
   const [user] = useAuthState(auth);
