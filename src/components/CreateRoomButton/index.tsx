@@ -1,20 +1,24 @@
 import React, { useState, useEffect, useRef } from "react";
-import Button from "../Button";
+
+// Data
 import { auth } from "../../firebase/config";
-import { Link } from "react-router-dom";
 import { firestore } from "../../firebase/config";
+
+// Components
+import Button from "../Button";
 import styled from "styled-components";
-import { init, send } from "emailjs-com";
 
 // Types
-import Message from "../../models/Message";
-import User from "../../models/User";
 import Room from "../../models/Room";
 
 // Utils
 import addChatToUserProfile from "../../util/addChatToUserProfile";
+import { init, send } from "emailjs-com";
 
+// Initial process to send over emailJS
 init(process.env.REACT_APP_EMAILJS_USER_ID as string);
+
+// Styled Components
 const RoomLink = styled.textarea`
   color: black;
 `;
@@ -32,34 +36,15 @@ const Wrapper = styled.div`
   width: 100%;
 `;
 
+// Main Component
 const CreateRoomButton = () => {
   const [link, setLink] = useState("");
   const [invited, setInvited] = useState(false);
   const [email, setEmail] = useState("");
-  const [currentUser, setCurrentUser] = useState<any>();
+
   const textRef = useRef<HTMLTextAreaElement>(
     document.createElement("textarea")
   );
-
-  useEffect(() => {
-    if (auth.currentUser) {
-      firestore
-        .collection("users")
-        .doc(auth.currentUser.uid)
-        .get()
-        .then(function (doc) {
-          if (doc.exists) {
-            console.log(doc.data());
-            setCurrentUser(doc.data());
-          } else {
-            console.log("No such document!");
-          }
-        })
-        .catch(function (error) {
-          console.log("Error getting document:", error);
-        });
-    }
-  }, []);
 
   const updateUser = () => {
     addChatToUserProfile(link);
