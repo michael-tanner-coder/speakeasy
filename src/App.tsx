@@ -1,13 +1,7 @@
 // Main dependencies
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from "recoil";
+import { RecoilRoot } from "recoil";
 // Authentication
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase/config";
@@ -18,6 +12,8 @@ import SignOut from "./components/SignOut";
 import ChatRoom from "./components/ChatRoom";
 import Header from "./components/Header";
 import CreateRoomButton from "./components/CreateRoomButton";
+import UserFetch from "./UserFetch";
+import ChatRoomFetch from "./ChatRoomFetch";
 
 // Containers
 import ChatSelection from "./containers/ChatSelection";
@@ -32,20 +28,20 @@ import PageWrapper from "./PageWrapper";
 import Landing from "./pages/Landing";
 import Contact from "./pages/Contact";
 
-// TODO: Implement Chat room invite
-// TODO: Implement Form behavior
 // TODO: Implement state management
+// TODO: Implement Form behavior
 // TODO: Build component stories
 // TODO: Write component tests
 
 function App() {
   const [user] = useAuthState(auth);
-  const userState = atom({ key: "userState", default: "default user" });
   const [page, setPage] = useState("landing");
 
   return (
     <RecoilRoot>
       <ThemeProvider theme={theme}>
+        <UserFetch />
+        <ChatRoomFetch />
         <Router>
           <Switch>
             <Route path="/app">
