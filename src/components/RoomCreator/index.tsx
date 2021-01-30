@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
-// Data
+// State + Data
 import { auth } from "../../firebase/config";
 import { firestore } from "../../firebase/config";
 
@@ -37,7 +37,7 @@ const Wrapper = styled.div`
 `;
 
 // Main Component
-const CreateRoomButton = () => {
+const RoomCreator = () => {
   const [link, setLink] = useState("");
   const [invited, setInvited] = useState(false);
   const [email, setEmail] = useState("");
@@ -117,4 +117,4 @@ const CreateRoomButton = () => {
   );
 };
 
-export default CreateRoomButton;
+export default RoomCreator;

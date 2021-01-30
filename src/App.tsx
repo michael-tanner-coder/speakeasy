@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { RecoilRoot } from "recoil";
+
 // Authentication
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase/config";
@@ -11,7 +12,7 @@ import SignIn from "./components/SignIn";
 import SignOut from "./components/SignOut";
 import ChatRoom from "./components/ChatRoom";
 import Header from "./components/Header";
-import CreateRoomButton from "./components/CreateRoomButton";
+import RoomCreator from "./components/RoomCreator";
 import UserFetch from "./UserFetch";
 import ChatRoomFetch from "./ChatRoomFetch";
 
@@ -54,7 +55,7 @@ function App() {
                   {user ? (
                     <>
                       <h2>Create a chat</h2>
-                      <CreateRoomButton />
+                      <RoomCreator />
                       <ChatSelection />
                     </>
                   ) : (
