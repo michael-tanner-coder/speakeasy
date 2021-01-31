@@ -8,6 +8,10 @@ const ChatMessageWrapper = styled.div<ChatMessageProps>`
     align-items: center;
   }
 
+  p {
+    word-break: break-all;
+  }
+
   /* Message Types */
   .sent p {
     align-self: flex-end;
