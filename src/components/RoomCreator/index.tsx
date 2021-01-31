@@ -15,6 +15,9 @@ import Room from "../../models/Room";
 // Utils
 import addChatToUserProfile from "../../util/addChatToUserProfile";
 
+// Styles
+import { ButtonWrapper } from "./styles/RoomCreator";
+
 // Main Component
 const RoomCreator = () => {
   const [link, setLink] = useState("");
@@ -49,7 +52,11 @@ const RoomCreator = () => {
   // Render
   return (
     <div>
-      <Button onClick={() => createRoom()}>Create Room</Button>
+      <ButtonWrapper>
+        <Button shade="light" onClick={() => createRoom()}>
+          New Chat
+        </Button>
+      </ButtonWrapper>
       {link && (
         <>
           <RoomLinkSender link={link} />
