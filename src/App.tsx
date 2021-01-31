@@ -25,6 +25,9 @@ import theme from "./theme";
 import AppWrapper from "./AppWrapper";
 import PageWrapper from "./PageWrapper";
 
+// Icons
+import Arrow from "./images/Arrow.svg";
+
 // Pages
 import Landing from "./pages/Landing";
 import Contact from "./pages/Contact";
@@ -79,7 +82,9 @@ function App() {
             <Route path="/chat">
               <AppWrapper className="App">
                 <Header>
-                  <h1>speakEASY</h1>
+                  <Link to="/app">
+                    <img src={Arrow} />
+                  </Link>
                   <SignOut />
                 </Header>
                 <section>{user ? <ChatRoom /> : <SignIn />}</section>
