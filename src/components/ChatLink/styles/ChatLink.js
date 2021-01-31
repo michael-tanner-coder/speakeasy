@@ -2,23 +2,59 @@ import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 import Button from "../../Button";
 
-export const ChatLinkWrapper = styled.div`
-  background: #25272c;
+export const ChatLinkWrapper = styled(Link)`
   margin-bottom: 1rem;
   padding: 10px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
 
-export const ChatLinkText = styled(Link)`
-  color: white;
+  & > * {
+    flex-basis: 100%;
+  }
+  cursor: pointer;
   &:hover {
-    color: gray;
+    background: #25272c;
   }
 `;
 
 export const ChatDeleteButton = styled(Button)`
   background: ${({ theme }) => theme.color.error.light};
 `;
+
+export const ChatTextWrapper = styled.div``;
+
+export const ChatName = styled.h3`
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: left;
+  line-height: 15px;
+  margin: 0;
+  margin-bottom: 10px;
+`;
+
+export const RecentMessage = styled.p`
+  && {
+    margin: 0;
+    padding: 0px;
+    font-size: 15px;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 90px;
+  }
+`;
+
+export const MessageDate = styled.div`
+  margin-left: 20px;
+  && p {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    font-size: 13px;
+    line-height: 15px;
+  }
+`;
+
+export const MessageDay = styled.p``;
+export const MessageHour = styled.p``;
