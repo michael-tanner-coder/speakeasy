@@ -16,11 +16,19 @@ import Room from "../../models/Room";
 import addChatToUserProfile from "../../util/addChatToUserProfile";
 
 // Styles
-import { ButtonWrapper } from "./styles/RoomCreator";
+import {
+  ButtonWrapper,
+  RoomNameInputWrapper,
+  RoomNameHeader,
+  RoomNameInput,
+  RoomLinkHeader,
+} from "./styles/RoomCreator";
 
 // Main Component
 const RoomCreator = () => {
   const [link, setLink] = useState("");
+  const [enterName, setEnterName] = useState(false);
+  const [roomName, setRoomName] = useState("");
 
   // Functions
   const updateUser = () => {
@@ -33,6 +41,7 @@ const RoomCreator = () => {
         id: firestore.collection("rooms").doc().id,
         createdBy: auth.currentUser.uid,
         users: [auth.currentUser.uid],
+        name: roomName,
       };
 
       firestore
@@ -46,24 +55,47 @@ const RoomCreator = () => {
 
   // Side effects
   useEffect(() => {
-    updateUser();
+    // updateUser();
   }, [link]);
 
   // Render
   return (
     <div>
       <ButtonWrapper>
-        <Button shade="light" onClick={() => createRoom()}>
+        <Button shade="light" onClick={() => setEnterName(true)}>
           New Chat
         </Button>
       </ButtonWrapper>
-      {link && (
-        <>
-          <RoomLinkSender link={link} />
-          <Button>
-            <Link to={"/chat?room=" + link}>Join Chat</Link>
+
+      {enterName && (
+        <RoomNameInputWrapper>
+          <RoomNameHeader>Enter a Room Name</RoomNameHeader>
+          <RoomNameInput
+            type="text"
+            placeholder="Room name ..."
+            onChange={({ target }) => setRoomName(target.value)}
+          />
+          <Button
+            disabled={roomName === ""}
+            shade="light"
+            onClick={() => {
+              createRoom();
+              setEnterName(false);
+            }}
+          >
+            Create Room
           </Button>
-        </>
+        </RoomNameInputWrapper>
+      )}
+      {link && (
+        <RoomNameInputWrapper>
+          <RoomLinkHeader>Chat Room Created!</RoomLinkHeader>
+          <RoomNameHeader>Here is your chat room link:</RoomNameHeader>
+          <RoomLinkSender link={link} />
+          <Button shade="light">
+            <Link to={"/chat?room=" + link}>Enter Chat</Link>
+          </Button>
+        </RoomNameInputWrapper>
       )}
     </div>
   );
