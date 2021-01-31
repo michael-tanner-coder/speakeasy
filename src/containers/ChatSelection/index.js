@@ -3,7 +3,6 @@ import ChatLink from "../../components/ChatLink";
 import { useRecoilValue } from "recoil";
 import { chatRooms } from "../../atoms";
 import { firestore } from "../../firebase/config";
-import { useCollectionData } from "react-firebase-hooks/firestore";
 
 const ChatSelection = () => {
   const chats = useRecoilValue(chatRooms);
@@ -32,7 +31,7 @@ const ChatSelection = () => {
 
   return (
     <div style={{ maxHeight: "400px", overflowY: "scroll" }}>
-      <h1 style={{ display: "block", color: "white" }}>Select a Chat</h1>
+      <h1 style={{ display: "block", color: "white" }}>Chats</h1>
       {chats &&
         chats.map((chat) => {
           return (
