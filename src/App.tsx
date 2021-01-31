@@ -1,5 +1,5 @@
 // Main dependencies
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 
@@ -39,7 +39,6 @@ import Contact from "./pages/Contact";
 
 function App() {
   const [user] = useAuthState(auth);
-  const [page, setPage] = useState("landing");
 
   return (
     <RecoilRoot>
@@ -60,7 +59,6 @@ function App() {
                 <section>
                   {user ? (
                     <>
-                      <h2>Create a chat</h2>
                       <RoomCreator />
                       <ChatSelection />
                     </>
