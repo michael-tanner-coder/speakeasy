@@ -5,6 +5,7 @@ type Room = {
   id: string;
   createdBy: string | null;
   users: string[];
+  name: string;
 };
 
 export default Room;
