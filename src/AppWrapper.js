@@ -66,5 +66,12 @@ const AppWrapper = styled.div`
       color: gray;
     }
   }
+
+  input {
+    /* Shape + Size*/
+    border: none;
+    border-radius: ${({ theme }) => theme.shape.border_radius};
+    padding: 0.6rem 1rem;
+  }
 `;
 export default AppWrapper;
