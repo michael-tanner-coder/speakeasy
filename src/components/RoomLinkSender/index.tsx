@@ -3,7 +3,13 @@ import { init, send } from "emailjs-com";
 
 // Components
 import Button from "../Button";
-import { Wrapper, RoomLink, Input } from "./styles/RoomLinkSender";
+import {
+  Wrapper,
+  RoomLink,
+  Input,
+  Row,
+  InviteHeader,
+} from "./styles/RoomLinkSender";
 
 // State + Data
 import { auth } from "../../firebase/config";
@@ -50,13 +56,33 @@ const RoomLinkSender: React.FC<RoomLinkSenderProps> = ({ link }) => {
   // Render
   return (
     <Wrapper>
-      <p>Room Link:</p>
-      <RoomLink ref={textRef} value={link} />
-      <Input type="email" onChange={({ target }) => setEmail(target.value)} />
-      <Button disabled={email ? false : true} onClick={() => sendEmail()}>
-        Send
-      </Button>
-      <Button onClick={() => copyText()}>Copy</Button>
+      <Row>
+        <RoomLink ref={textRef} value={link} />
+        <Input
+          type="email"
+          placeholder="Email ..."
+          value={link}
+          onChange={({ target }) => setEmail(target.value)}
+        />
+
+        <div>
+          <Button onClick={() => copyText()}>Copy</Button>
+        </div>
+      </Row>
+      <br />
+      <InviteHeader>Invite a friend to chat!</InviteHeader>
+      <Row>
+        <Input
+          type="email"
+          placeholder="Email ..."
+          onChange={({ target }) => setEmail(target.value)}
+        />
+        <div>
+          <Button disabled={email ? false : true} onClick={() => sendEmail()}>
+            Send
+          </Button>
+        </div>
+      </Row>
     </Wrapper>
   );
 };
