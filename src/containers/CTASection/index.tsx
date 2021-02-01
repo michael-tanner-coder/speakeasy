@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const SectionWrapper = styled.section`
   margin: 25vh auto 0 auto;
-  max-width: 14750px;
+  max-width: 1475px;
   padding: 2rem;
 
   display: flex;
