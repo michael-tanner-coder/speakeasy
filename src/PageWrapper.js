@@ -13,6 +13,13 @@ const PageStyles = styled.div`
   body {
     background-color: ${({ theme }) => theme.color.background};
   }
+
+  input {
+    /* Shape + Size*/
+    border: none;
+    border-radius: ${({ theme }) => theme.shape.border_radius};
+    padding: 0.6rem 1rem;
+  }
 `;
 
 const PageWrapper = ({ children }) => {
