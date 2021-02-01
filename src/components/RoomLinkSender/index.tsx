@@ -26,6 +26,8 @@ const RoomLinkSender: React.FC<RoomLinkSenderProps> = ({ link }) => {
     document.createElement("textarea")
   );
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("Error");
+  const [success, setSuccess] = useState("");
 
   // Functions
   const copyText = () => {
@@ -37,7 +39,6 @@ const RoomLinkSender: React.FC<RoomLinkSenderProps> = ({ link }) => {
 
   const sendEmail = () => {
     if (auth.currentUser) {
-      // send the message and get a callback with an error or details of the message that was sent
       send("default_service", "template_ocqsdjy", {
         from_name: auth.currentUser.email,
         to_name: email,
@@ -45,11 +46,12 @@ const RoomLinkSender: React.FC<RoomLinkSenderProps> = ({ link }) => {
       })
         .then((res) => {
           if (res.status === 200) {
-            console.log("Email sent");
+            setSuccess("Invite sent!");
           }
         })
-        // Handle errors here however you like
-        .catch((err) => console.error("Failed to send feedback. Error: ", err));
+        .catch(() => {
+          setError("Please enter a valid email address");
+        });
     }
   };
 
@@ -57,13 +59,11 @@ const RoomLinkSender: React.FC<RoomLinkSenderProps> = ({ link }) => {
   return (
     <Wrapper>
       <Row>
-        <RoomLink ref={textRef} value={link} />
-        <Input
-          type="email"
-          placeholder="Email ..."
-          value={link}
-          onChange={({ target }) => setEmail(target.value)}
+        <RoomLink
+          ref={textRef}
+          value={"https://speakeasyapp.netlify.app/chat?room=" + link}
         />
+        <Input type="text" value={link} />
 
         <div>
           <Button onClick={() => copyText()}>Copy</Button>
@@ -71,11 +71,15 @@ const RoomLinkSender: React.FC<RoomLinkSenderProps> = ({ link }) => {
       </Row>
       <br />
       <InviteHeader>Invite a friend to chat!</InviteHeader>
+      {error && <p className="error-text">{error}</p>}
       <Row>
         <Input
           type="email"
           placeholder="Email ..."
-          onChange={({ target }) => setEmail(target.value)}
+          onChange={({ target }) => {
+            setEmail(target.value);
+            setError("");
+          }}
         />
         <div>
           <Button disabled={email ? false : true} onClick={() => sendEmail()}>
@@ -83,6 +87,7 @@ const RoomLinkSender: React.FC<RoomLinkSenderProps> = ({ link }) => {
           </Button>
         </div>
       </Row>
+      {success && <p className="success-text">{success}</p>}
     </Wrapper>
   );
 };
