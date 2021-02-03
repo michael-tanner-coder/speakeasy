@@ -32,7 +32,6 @@ import Arrow from "./images/Arrow.svg";
 import Landing from "./pages/Landing";
 import Contact from "./pages/Contact";
 
-// TODO: Implement Form behavior
 // TODO: Build component stories
 // TODO: Write component tests
 
