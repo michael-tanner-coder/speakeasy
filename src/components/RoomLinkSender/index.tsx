@@ -26,7 +26,7 @@ const RoomLinkSender: React.FC<RoomLinkSenderProps> = ({ link }) => {
     document.createElement("textarea")
   );
   const [email, setEmail] = useState("");
-  const [error, setError] = useState("Error");
+  const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
   // Functions
