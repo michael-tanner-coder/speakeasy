@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Button from "../components/Button";
+import { init, send } from "emailjs-com";
+import { hasKey } from "../util/hasKey";
 
+// Initial process to send over emailJS
+init(process.env.REACT_APP_EMAILJS_USER_ID as string);
+
+// Styles
 const ContactPageWrapper = styled.div`
   margin: 0 auto;
   max-width: 1475px;
@@ -62,7 +68,55 @@ const Textarea = styled.textarea`
   padding: 0.6rem 1rem;
 `;
 
+// Main component
 const Contact = () => {
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [formState, setFormState] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  useEffect(() => {
+    console.log(formState);
+  }, [formState]);
+
+  const sendEmail = () => {
+    send("default_service", "template_cgrkq3g", {
+      from_name: formState.name,
+      from_email: formState.email,
+      reply_to: formState.email,
+      message: formState.message,
+    })
+      .then((res) => {
+        if (res.status === 200) {
+          setSuccess("Thank you! Your submission has been received!");
+        }
+      })
+      .catch((err) => {
+        setError("So sorry! There was a problem submitting your message.");
+      });
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    var valid = true;
+
+    for (var prop in formState) {
+      if (hasKey(formState, prop) && !formState[prop]) {
+        setError("Error: missing " + prop);
+        valid = false;
+      }
+    }
+
+    if (valid) {
+      setSuccess("Sending ...");
+      setError("");
+      sendEmail();
+    }
+  };
+
   return (
     <ContactPageWrapper>
       <body>
@@ -91,6 +145,11 @@ const Contact = () => {
                     data-name="Name"
                     placeholder="Name ..."
                     id="name"
+                    onChange={({ target }) =>
+                      setFormState((prevState) => {
+                        return { ...prevState, name: target.value };
+                      })
+                    }
                   />
 
                   {/* Email */}
@@ -103,6 +162,11 @@ const Contact = () => {
                     placeholder="Email ..."
                     id="email"
                     required={false}
+                    onChange={({ target }) =>
+                      setFormState((prevState) => {
+                        return { ...prevState, email: target.value };
+                      })
+                    }
                   />
 
                   {/* Message */}
@@ -113,6 +177,11 @@ const Contact = () => {
                     id="field"
                     name="field"
                     required={false}
+                    onChange={({ target }) =>
+                      setFormState((prevState) => {
+                        return { ...prevState, message: target.value };
+                      })
+                    }
                   ></Textarea>
 
                   {/* Submit */}
@@ -120,18 +189,17 @@ const Contact = () => {
                     type="submit"
                     value="Submit"
                     data-wait="Please wait..."
+                    onClick={(e) => handleSubmit(e)}
                   >
                     Send
                   </Button>
                 </ContactForm>
-                {/* <div className="w-htmlForm-done">
-                  <div>Thank you! Your submission has been received!</div>
+                <div className="success-text">
+                  <div>{success}</div>
                 </div>
-                <div className="w-htmlForm-fail">
-                  <div>
-                    Oops! Something went wrong while submitting the htmlForm.
-                  </div>
-                </div> */}
+                <div className="error-text">
+                  <div>{error}</div>
+                </div>
               </Col>
             </Grid>
           </Container>
