@@ -20,6 +20,14 @@ const PageStyles = styled.div`
     border-radius: ${({ theme }) => theme.shape.border_radius};
     padding: 0.6rem 1rem;
   }
+
+  .error-text {
+    color: ${({ theme }) => theme.color.error.light};
+  }
+
+  .success-text {
+    color: ${({ theme }) => theme.color.success.light};
+  }
 `;
 
 const PageWrapper = ({ children }) => {
