@@ -2,7 +2,6 @@ import React from "react";
 import {
   ChatLinkWrapper,
   ChatTextWrapper,
-  ChatDeleteButton,
   ChatName,
   RecentMessage,
   MessageDate,
@@ -42,7 +41,6 @@ const ChatLink = ({ to, recent_message, name }) => {
           <p>No messages</p>
         </MessageDate>
       )}
-      {/* <ChatDeleteButton>Delete</ChatDeleteButton> */}
     </ChatLinkWrapper>
   );
 };
