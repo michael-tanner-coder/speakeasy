@@ -32,11 +32,9 @@ import Arrow from "./images/Arrow.svg";
 import Landing from "./pages/Landing";
 import Contact from "./pages/Contact";
 
-// TODO: Build template component for ChatLinks
 // TODO: Build component stories
 // TODO: Write component tests
 // TODO: Add autoscroll to tonedrawer
-// TODO: Let user delete chatrooms from their account
 
 function App() {
   const [user] = useAuthState(auth);

@@ -55,7 +55,7 @@ const RoomCreator = () => {
 
   // Side effects
   useEffect(() => {
-    // updateUser();
+    updateUser();
   }, [link]);
 
   // Render
