@@ -19,6 +19,7 @@ const theme = {
     text_primary: "#E5E5E5",
     text_secondary: "#362C2C",
     text_disabled: "#E5E5E588",
+    transparent: { main: "#00000000" },
   },
   typography: {
     fonts: { primary: "Roboto" },
