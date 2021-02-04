@@ -2,8 +2,6 @@ import styled from "styled-components/macro";
 import ButtonProps from "../Button.interface";
 import LightenOrDarkenHexColor from "../../../util/LightenOrDarkenHexColor";
 
-// TODO: Create function to get variant and shade from props
-
 const ButtonWrapper = styled("button")<ButtonProps>`
   /* Colors */
   background: ${(props) => {
