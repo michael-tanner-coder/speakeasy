@@ -34,7 +34,6 @@ import Contact from "./pages/Contact";
 
 // TODO: Build component stories
 // TODO: Write component tests
-// TODO: Add autoscroll to tonedrawer
 
 function App() {
   const [user] = useAuthState(auth);

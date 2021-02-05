@@ -1,6 +1,6 @@
 // Functional component for holding all selectable tones in the chatbar
 
-import React from "react";
+import React, { useEffect } from "react";
 import ToneDrawerWrapper from "./styles/ToneDrawer";
 import ToneDrawerProps from "./ToneDrawer.interface";
 
@@ -10,6 +10,9 @@ const ToneDrawer: React.FC<ToneDrawerProps> = ({
   open,
   ...restProps
 }) => {
+  useEffect(() => {
+    console.log("open");
+  }, []);
   return (
     <ToneDrawerWrapper open={open} {...(restProps as any)}>
       {children}

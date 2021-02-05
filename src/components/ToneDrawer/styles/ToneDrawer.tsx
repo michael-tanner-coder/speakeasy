@@ -20,16 +20,11 @@ const ToneDrawerWrapper = styled.div<ToneDrawerProps>`
     } else return `padding: 0px;`;
   }}
 
-  /* Position */
-  /* position: absolute;
-  bottom: 0; */
-
   /* Scrolling */
   overflow-x: scroll;
   ${NoScrollbar};
 
   /* Flex + Alignment */
-
   display: flex;
   flex-direction: row;
   justify-content: center;

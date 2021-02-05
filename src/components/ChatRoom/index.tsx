@@ -50,7 +50,6 @@ const ChatRoom = () => {
 
   // Dummy element to hold ref first
   const dummy = useRef<HTMLSpanElement>(document.createElement("span"));
-  const toneDrawer = useRef<HTMLDivElement>(document.createElement("div"));
 
   // Functions
   const sendMessage = async (e: any) => {
@@ -71,9 +70,22 @@ const ChatRoom = () => {
     dummy.current.scrollIntoView({ behavior: "smooth" }); // Scroll to latest message after send
   };
 
+  function waitToScroll() {
+    setTimeout(function () {
+      window.scroll({
+        top: document.body.scrollHeight,
+        left: 0,
+        behavior: "smooth",
+      });
+    }, 165);
+  }
+
   // Logs + Side Effects
   useEffect(() => {
     console.log(open);
+    if (open) {
+      waitToScroll();
+    }
   }, [open]);
 
   useEffect(() => {
@@ -82,7 +94,7 @@ const ChatRoom = () => {
 
   // Render
   return (
-    <>
+    <div style={{ position: "relative" }}>
       <main>
         {/* Message display */}
         {messages &&
@@ -146,8 +158,7 @@ const ChatRoom = () => {
           </Tone>
         </div>
       </ToneDrawer>
-      <div ref={toneDrawer} id="tone-drawer"></div>
-    </>
+    </div>
   );
 };
 
