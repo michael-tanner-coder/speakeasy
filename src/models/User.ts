@@ -3,6 +3,7 @@ type User = {
   name?: string;
   photoURL: string;
   friends?: User[];
+  chats: string[];
 };
 
 export default User;

@@ -8,20 +8,48 @@ const UserFetch = () => {
   const [authState] = useAuthState(auth);
   const [user, setUser] = useRecoilState(userState);
 
-  useEffect(() => {
+  const fillUserData = async () => {
     console.log("Auth state");
     console.log(authState);
 
     if (authState) {
-      firestore
-        .collection("users")
-        .doc(authState.uid)
-        .get()
-        .then((user) => {
-          console.log(user.data());
-          setUser(user.data());
-        });
+      const userRef = firestore.collection("users").doc(authState.uid);
+      const doc = await userRef.get();
+
+      if (!doc.exists) {
+        await firestore
+          .collection("users")
+          .doc(authState.uid)
+          .set({
+            name: "",
+            friends: [""],
+            chats: [],
+            photoURL: authState.photoURL,
+          })
+          .then(() => {
+            firestore
+              .collection("users")
+              .doc(authState.uid)
+              .get()
+              .then((user) => {
+                setUser(user.data());
+              });
+          });
+      } else {
+        firestore
+          .collection("users")
+          .doc(authState.uid)
+          .get()
+          .then((user) => {
+            console.log(user.data());
+            setUser(user.data());
+          });
+      }
     }
+  };
+
+  useEffect(() => {
+    fillUserData();
   }, [authState]);
 
   useEffect(() => {

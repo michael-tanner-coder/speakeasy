@@ -10,7 +10,7 @@ const ChatRoomFetch = () => {
   useEffect(() => {
     console.log("User state");
     console.log(user);
-    if (user.chats) {
+    if (user && user.chats) {
       user.chats.map((chat) => {
         firestore
           .collection("rooms")
