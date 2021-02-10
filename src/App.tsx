@@ -10,20 +10,22 @@ import { auth } from "./firebase/config";
 // Components
 import SignIn from "./components/SignIn";
 import SignOut from "./components/SignOut";
-import ChatRoom from "./components/ChatRoom";
 import Header from "./components/Header";
 import RoomCreator from "./components/RoomCreator";
-import UserFetch from "./UserFetch";
-import ChatRoomFetch from "./ChatRoomFetch";
+
+// Data fetchers
+import UserFetch from "./fetchers/UserFetch";
+import ChatRoomFetch from "./fetchers/ChatRoomFetch";
 
 // Containers
 import ChatSelection from "./containers/ChatSelection";
+import ChatRoom from "./containers/ChatRoom";
 
 // Styles
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
-import AppWrapper from "./AppWrapper";
-import PageWrapper from "./PageWrapper";
+import AppWrapper from "./wrappers/AppWrapper";
+import PageWrapper from "./wrappers/PageWrapper";
 
 // Icons
 import Arrow from "./images/Arrow.svg";
@@ -31,9 +33,6 @@ import Arrow from "./images/Arrow.svg";
 // Pages
 import Landing from "./pages/Landing";
 import Contact from "./pages/Contact";
-
-// TODO: Build component stories
-// TODO: Write component tests
 
 function App() {
   const [user] = useAuthState(auth);

@@ -85,7 +85,7 @@ const HeroSectionArea: React.FC<HeroProps> = () => {
           </Tagline>
           <Link style={{ textDecoration: "none" }} to="/app">
             <HeroButton shade="light" href="#" className="button w-button">
-              Join the Beta!
+              Make an Account!
             </HeroButton>
           </Link>
         </HeroItems>
