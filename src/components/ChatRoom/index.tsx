@@ -14,7 +14,7 @@ import TextField from "../TextField";
 import ToneDrawer from "../ToneDrawer";
 
 // Data + Types
-import tones from "../../tones";
+import tones from "../../constants/tones";
 import Message from "../../models/Message";
 import User from "../../models/User";
 
