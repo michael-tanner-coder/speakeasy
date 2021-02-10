@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import SignOut from "./index";
+import SignOutButton from "./index";
 import theme from "../../theme";
 import { ThemeProvider } from "styled-components";
 

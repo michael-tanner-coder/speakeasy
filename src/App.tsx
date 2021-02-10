@@ -8,8 +8,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebase/config";
 
 // Components
-import SignIn from "./components/SignIn";
-import SignOut from "./components/SignOut";
+import SignOutButton from "./components/SignOutButton";
 import Header from "./components/Header";
 import RoomCreator from "./components/RoomCreator";
 
@@ -20,6 +19,7 @@ import ChatRoomFetch from "./fetchers/ChatRoomFetch";
 // Containers
 import ChatSelection from "./containers/ChatSelection";
 import ChatRoom from "./containers/ChatRoom";
+import SignInSection from "./containers/SignInSection";
 
 // Styles
 import { ThemeProvider } from "styled-components";
@@ -51,7 +51,7 @@ function App() {
                   <Link to="/">
                     <h1>speakEASY</h1>
                   </Link>
-                  <SignOut />
+                  <SignOutButton />
                 </Header>
                 <section>
                   {user ? (
@@ -60,7 +60,7 @@ function App() {
                       <ChatSelection />
                     </>
                   ) : (
-                    <SignIn />
+                    <SignInSection />
                   )}
                 </section>
               </AppWrapper>
@@ -80,9 +80,9 @@ function App() {
                   <Link to="/app">
                     <img src={Arrow} />
                   </Link>
-                  <SignOut />
+                  <SignOutButton />
                 </Header>
-                <section>{user ? <ChatRoom /> : <SignIn />}</section>
+                <section>{user ? <ChatRoom /> : <SignInSection />}</section>
               </AppWrapper>
             </Route>
 

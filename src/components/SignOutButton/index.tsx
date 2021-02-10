@@ -6,7 +6,7 @@ import { useRecoilState } from "recoil";
 import { userState, chatRooms } from "../../state/atoms";
 import Button from "../Button";
 
-const SignOut = () => {
+const SignOutButton = () => {
   const [user, setUser] = useRecoilState(userState);
   const [chats, setChats] = useRecoilState(chatRooms);
 
@@ -28,4 +28,4 @@ const SignOut = () => {
   );
 };
 
-export default SignOut;
+export default SignOutButton;

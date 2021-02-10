@@ -2,10 +2,10 @@
 
 import React from "react";
 import SignInWrapper from "./styles/SignIn";
-import Button from "../Button";
+import Button from "../../components/Button";
 import signInWithGoogle from "../../util/signInWithGoogle";
 
-const SignIn = () => {
+const SignInSection = () => {
   return (
     <SignInWrapper>
       <h2>Welcome to speakEasy</h2>
@@ -26,4 +26,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignInSection;
