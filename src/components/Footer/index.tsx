@@ -75,9 +75,6 @@ const Footer = () => {
             >
               Buy me a coffee!{" "}
             </a>
-            <a href="#" className="nav-link footer-link">
-              Support cool apps on Patreon!
-            </a>
           </LinkBlock>
         </Col>
       </Row>
