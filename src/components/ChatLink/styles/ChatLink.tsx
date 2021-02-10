@@ -1,8 +1,9 @@
 import styled from "styled-components/macro";
 import { Link } from "react-router-dom";
 import Button from "../../Button";
+import ChatLinkProps from "../ChatLink.interface";
 
-export const ChatLinkWrapper = styled(Link)`
+export const ChatLinkWrapper = styled(Link)<any>`
   margin-bottom: 1rem;
   padding: 10px;
   display: flex;

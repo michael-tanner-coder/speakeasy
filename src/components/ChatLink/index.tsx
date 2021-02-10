@@ -10,10 +10,11 @@ import {
 } from "./styles/ChatLink";
 import ProfileImage from "../ProfileImage";
 import DefaultIcon from "../../images/ProfileIcon.svg";
+import ChatLinkProps from "./ChatLink.interface";
 
-const ChatLink = ({ to, recent_message, name }) => {
+const ChatLink: React.FC<ChatLinkProps> = ({ to, recent_message, name }) => {
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  console.log("Message: ", recent_message);
+
   return (
     <ChatLinkWrapper to={to}>
       <div>
