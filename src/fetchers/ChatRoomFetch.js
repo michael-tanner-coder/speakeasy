@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { userState, chatRooms } from "./atoms";
-import { firestore } from "./firebase/config";
+import { userState, chatRooms } from "../state/atoms";
+import { firestore } from "../firebase/config";
 
 const ChatRoomFetch = () => {
   const [user, setUser] = useRecoilState(userState);

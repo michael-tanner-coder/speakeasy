@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { userState } from "./atoms";
+import { userState } from "../state/atoms";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, firestore } from "./firebase/config";
+import { auth, firestore } from "../firebase/config";
 
 const UserFetch = () => {
   const [authState] = useAuthState(auth);

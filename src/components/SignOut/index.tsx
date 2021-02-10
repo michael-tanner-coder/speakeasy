@@ -3,7 +3,7 @@
 import React from "react";
 import { auth } from "../../firebase/config";
 import { useRecoilState } from "recoil";
-import { userState, chatRooms } from "../../atoms";
+import { userState, chatRooms } from "../../state/atoms";
 import Button from "../Button";
 
 const SignOut = () => {
