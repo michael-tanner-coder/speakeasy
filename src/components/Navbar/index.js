@@ -75,10 +75,13 @@ const NavWrapper = styled.nav`
 const NavbarComponent = () => {
   const burgerToggle = () => {
     let linksEl = document.querySelector(".narrowLinks");
-    if (linksEl.style.display === "block") {
-      linksEl.style.display = "none";
-    } else {
-      linksEl.style.display = "block";
+
+    if (linksEl) {
+      if (linksEl.style.display === "block") {
+        linksEl.style.display = "none";
+      } else {
+        linksEl.style.display = "block";
+      }
     }
   };
 
