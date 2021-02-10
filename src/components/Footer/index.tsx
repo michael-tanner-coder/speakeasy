@@ -1,41 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import { Link } from "react-router-dom";
-
-const FooterWrapper = styled.div`
-  background: ${({ theme }) => theme.color.primary.light};
-  padding: 1rem 2rem;
-  a {
-    color: white;
-    text-decoration: none;
-    padding: 5px;
-    margin: 0;
-
-    &:hover {
-      background: white;
-      color: ${({ theme }) => theme.color.primary.light};
-      border-radius: 8px;
-    }
-  }
-`;
-
-const Row = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-`;
-
-const Col = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const LinkBlock = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+import { FooterWrapper, Row, Col, LinkBlock } from "./styles/Footer";
 
 const Footer = () => {
   return (

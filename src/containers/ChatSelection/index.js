@@ -8,51 +8,15 @@ import { firestore } from "../../firebase/config";
 
 // Components
 import Button from "../../components/Button";
-import ReactModal from "react-modal";
+import Modal from "../../components/Modal";
+import { Row } from "./styles/ChatSelection";
 
 // Utilities
 import removeChatFromUserProfile from "../../util/removeChatFromUserProfie";
 
 // Styles + icons
-import styled from "styled-components";
 import OptionsIcon from "../../images/OptionsIcon.svg";
 import CloseIcon from "../../images/CloseIcon.svg";
-
-const Modal = styled(ReactModal)`
-  border-radius: 32px;
-  max-width: 280px;
-  background: ${({ theme }) => theme.color.background};
-  outline: none;
-  margin: 0 auto;
-  margin-top: 40vh;
-  padding: 2rem;
-  color: white;
-  h2 {
-    margin: 0;
-  }
-
-  .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-  }
-`;
-
-const Row = styled.div`
-  display: flex;
-  align-items: center;
-
-  > *:nth-child(1) {
-    flex: 1 1 80%;
-  }
-  > *:nth-child(2) {
-    flex: 1 1 20%;
-    button {
-      margin-bottom: 25px;
-    }
-  }
-`;
 
 const ChatSelection = () => {
   const chats = useRecoilValue(chatRooms);
