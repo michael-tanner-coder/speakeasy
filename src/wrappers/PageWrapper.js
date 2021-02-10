@@ -1,8 +1,8 @@
 import styled from "styled-components/macro";
 import React from "react";
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const PageStyles = styled.div`
   margin: 0 auto;
