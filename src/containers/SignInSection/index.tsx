@@ -4,6 +4,7 @@ import React from "react";
 import SignInWrapper from "./styles/SignIn";
 import Button from "../../components/Button";
 import signInWithGoogle from "../../util/signInWithGoogle";
+import { Link } from "react-router-dom";
 
 const SignInSection = () => {
   return (
@@ -17,10 +18,15 @@ const SignInSection = () => {
       >
         Sign in with Google
       </Button>
-      <p>To learn more about the speakEasy project, visit our landing page.</p>
+      <p>
+        To learn more about the speakEasy project, visit the{" "}
+        <Link to="/" style={{ color: "#0078AE" }}>
+          landing page
+        </Link>
+      </p>
       <p className="minor-text">
-        *This is app is only a proof of concept and not intended for commercial
-        use.
+        *This is app is only a proof of concept and not intended as a commercial
+        product.
       </p>
     </SignInWrapper>
   );
