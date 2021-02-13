@@ -1,10 +1,9 @@
 import styled from "styled-components";
+import Section from "../../Section";
 
 // Section
 export const SectionWrapper = styled.section`
-  margin: 25vh auto;
-  max-width: 1475px;
-  padding: 2rem;
+  ${Section};
 `;
 
 export const SectionHeading = styled.div`

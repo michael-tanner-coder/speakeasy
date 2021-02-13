@@ -1,9 +1,8 @@
 import styled from "styled-components/macro";
+import Section from "../Section";
 
 export const SectionWrapper = styled.div`
-  margin: 20vh auto;
-  max-width: 1475px;
-  padding: 2rem;
+  ${Section};
 `;
 
 export const SectionHeading = styled.div`
