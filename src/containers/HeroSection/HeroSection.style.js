@@ -15,10 +15,10 @@ export const BannerImage = styled.div`
   width: 100%;
   z-index: 2;
   padding: 2rem;
-  background-image: ${(props) =>
+  background-image: ${() =>
     `linear-gradient( rgba(0, 0, 0, 0.175), rgba(0, 0, 0, 0.175) ), url(${Tones})`};
-  background-repeat: repeat;
-  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 export const Tagline = styled.p`
