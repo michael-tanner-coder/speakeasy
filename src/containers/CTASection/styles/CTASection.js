@@ -11,7 +11,8 @@ export const SectionWrapper = styled.section`
   flex-direction: column;
   justify-content: center;
 
-  background-image: ${(props) => `url(${Tones})`};
+  background-image: ${(props) =>
+    `linear-gradient( rgba(0, 0, 0, 0.175), rgba(0, 0, 0, 0.175) ), url(${Tones})`};
   background-repeat: repeat;
   background-size: contain;
 `;
