@@ -66,6 +66,7 @@ const ChatRoom = () => {
     });
 
     setFormValue("");
+    setTone("");
 
     dummy.current.scrollIntoView({ behavior: "smooth" }); // Scroll to latest message after send
   };
