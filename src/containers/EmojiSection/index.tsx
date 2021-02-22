@@ -22,8 +22,8 @@ const EmojiSection = () => {
         Emojis are great for implying tone in text, but they have limitations.
         <br />
         <br />
-        Emojis may be interpreted differenly in different cultural contexts, and
-        their meanings are not standardized for any one culture.
+        Emojis may be interpreted differently in different cultural contexts,
+        and their meanings are not standardized for any one culture.
         <br />
         <br />
         Sometimes it’s easier to just be explicit about your intended tone. And
