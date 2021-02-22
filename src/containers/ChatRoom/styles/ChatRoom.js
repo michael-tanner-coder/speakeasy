@@ -66,6 +66,7 @@ export const ToneButton = styled.div`
   height: 100%;
   max-height: 45px;
   max-width: 45px;
+  border: none;
 
   /* Display */
   display: flex;
@@ -76,8 +77,11 @@ export const ToneButton = styled.div`
   position: relative;
   &:after {
     position: absolute;
+
     content: "[tone]";
+
     color: white;
+    margin-top: 5px;
     font-size: 14px;
     top: 40px;
   }
@@ -88,6 +92,7 @@ export const ToneButton = styled.div`
 
   &:active {
     background: white;
+    border: none;
   }
 
   &:hover,

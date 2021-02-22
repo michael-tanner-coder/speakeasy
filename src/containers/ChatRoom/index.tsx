@@ -110,7 +110,7 @@ const ChatRoom = () => {
         <TextField
           value={formValue}
           onChange={(e: any) => setFormValue(e.target.value)}
-          placeholder="Message ..."
+          placeholder={tone ? "Message ... [" + tone + "]" : "Message ..."}
         />
 
         <SendButton type="submit" disabled={!formValue}>
