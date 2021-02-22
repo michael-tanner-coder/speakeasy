@@ -5,7 +5,6 @@ const tones = [
   "CURIOUS",
   "JOYFUL",
   "JOKING",
-  "FAKE",
   "HYPERBOLE",
   "METAPHORICAL",
   "LITERAL",
