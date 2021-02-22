@@ -18,11 +18,8 @@ export const SectionHeading = styled.div`
 `;
 
 export const SectionParagraph = styled.p`
-  font-size: 48px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    font-size: 32px;
-  }
+  font-size: 24px;
+  line-height: 1.4em;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
     font-size: 24px;

@@ -34,12 +34,14 @@ export const DetailWrapper = styled.div`
     font-size: 36px;
     font-weight: normal;
     text-transform: uppercase;
+    padding-top: 16px;
     margin-bottom: 2px;
     margin: 0;
   }
 
   p {
     margin: 0;
+    line-height: 1.4em;
   }
 
   margin-bottom: 2rem;
