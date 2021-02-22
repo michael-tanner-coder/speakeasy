@@ -8,6 +8,8 @@ import {
   SectionImage,
   SectionSubheading,
 } from "./WhatSection.styles";
+import ToneIndicators from "../../images/ToneIndicators.svg";
+import ToneSelection from "../../images/ToneSelection.svg";
 
 const WhatSection = () => {
   return (
@@ -33,21 +35,13 @@ const WhatSection = () => {
           <SectionSubheading className="heading-5">
             Instead of memorizing these...
           </SectionSubheading>
-          <SectionImage
-            src="https://uploads-ssl.webflow.com/5f4ac872d0772879163d4751/600c9e677e43edb4fcd53551_Tone%20Indicators.svg"
-            loading="lazy"
-            alt=""
-          />
+          <SectionImage src={ToneIndicators} loading="lazy" alt="" />
         </div>
         <div>
           <SectionSubheading className="heading-6">
             Just select one of these!
           </SectionSubheading>
-          <SectionImage
-            src="https://uploads-ssl.webflow.com/5f4ac872d0772879163d4751/600c9e1f75f36b670f5c7c5b_TONE%20SELECTION.svg"
-            loading="lazy"
-            alt=""
-          />
+          <SectionImage src={ToneSelection} loading="lazy" alt="" />
         </div>
       </SectionColumns>
     </SectionWrapper>
