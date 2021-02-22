@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 const SignInSection = () => {
   return (
     <SignInWrapper>
-      <h2>Welcome to speakEasy</h2>
-      <h3>A chat app for maximum clarity*</h3>
+      <h2>Welcome to speakEasy!</h2>
+      <h3>The chat app for maximum clarity*</h3>
       <Button
         className="sign-in"
         onChange={() => console.log("change")}
